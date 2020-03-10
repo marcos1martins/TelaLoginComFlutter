@@ -9,6 +9,21 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
+
+  PageController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = PageController(initialPage: 1);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -17,6 +32,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         children: <Widget>[
           Image.asset("assets/img/monte.jpg", fit: BoxFit.cover,),
           PageView(
+            controller: _controller,
             children: <Widget>[
               LoginSignUpPageWidget(),
               LoginPageWidget(),

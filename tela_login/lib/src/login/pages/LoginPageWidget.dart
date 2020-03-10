@@ -37,6 +37,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             backGroundColor: Colors.transparent,
             bordeColor: Colors.white,
             label: "SIGN UP",
+            onTap: (){
+              print("Tocou no Sign Up");
+            },
           ),
 
           Container(height: 30,),
@@ -45,6 +48,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             textColor: Theme.of(context).accentColor,
             backGroundColor: Colors.white,
             label: "LOGIN",
+            onTap: (){
+              print("Tocou no Sign In");
+            },
           ),
 
         ],
