@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tela_login/src/login/pages/LoginPageWidget.dart';
 import 'package:tela_login/src/login/pages/LoginSignInPageWidget.dart';
 import 'package:tela_login/src/login/pages/LoginSignUpPageWidget.dart';
+import 'package:tela_login/src/login/provider/ProviderPageController.dart';
 
 class LoginWidget extends StatefulWidget {
   @override
@@ -9,7 +10,6 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-
   PageController _controller;
 
   @override
@@ -30,17 +30,20 @@ class _LoginWidgetState extends State<LoginWidget> {
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          Image.asset("assets/img/monte.jpg", fit: BoxFit.cover,),
-          PageView(
-            controller: _controller,
-            children: <Widget>[
-              LoginSignUpPageWidget(),
-              LoginPageWidget(),
-              LoginSignInPageWidget(),
-              
-              
-            ],
-          )
+          Image.asset(
+            "assets/img/monte.jpg",
+            fit: BoxFit.cover,
+          ),
+          ProviderPageController(
+              controller: _controller,
+              child: PageView(
+                controller: _controller,
+                children: <Widget>[
+                  LoginSignUpPageWidget(),
+                  LoginPageWidget(),
+                  LoginSignInPageWidget(),
+                ],
+              )),
         ],
       ),
     );

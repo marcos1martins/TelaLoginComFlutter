@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tela_login/src/login/provider/ProviderPageController.dart';
 import 'package:tela_login/src/login/widgets/CicleButton.dart';
 import 'package:tela_login/src/login/widgets/CustonTextFild.dart';
 
@@ -24,22 +25,40 @@ class _LoginSignUpPageWidgetState extends State<LoginSignUpPageWidget> {
           Container(
             height: 50,
           ),
-          CustonTextFild(hint: "marcosm.caixa@gmail.com", label: "EMAIL",),
-          Container(height: 25,),
-          CustonTextFild(hint: "**************", label: "PASSWORD",),
-          Container(height: 25,),
-          CustonTextFild(hint: "**************", label: "CONFIRM PASSWORD",),
+          CustonTextFild(
+            hint: "marcosm.caixa@gmail.com",
+            label: "EMAIL",
+          ),
           Container(
             height: 25,
           ),
+          CustonTextFild(
+            hint: "**************",
+            label: "PASSWORD",
+          ),
           Container(
-            width: double.infinity,
-            child: Text(
-              "Already have a account?",
-              textAlign: TextAlign.right,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).accentColor),
+            height: 25,
+          ),
+          CustonTextFild(
+            hint: "**************",
+            label: "CONFIRM PASSWORD",
+          ),
+          Container(
+            height: 25,
+          ),
+          GestureDetector(
+            onTap: () {
+              ProviderPageController.of(context).toPage(2);
+            },
+            child: Container(
+              width: double.infinity,
+              child: Text(
+                "Already have a account?",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).accentColor),
+              ),
             ),
           ),
           Container(
